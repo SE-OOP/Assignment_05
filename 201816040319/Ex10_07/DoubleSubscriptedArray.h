@@ -1,8 +1,7 @@
 #ifndef DOUBLE_SUBSCRIPTED_ARRAY_H
 #define DOUBLE_SUBSCRIPTED_ARRAY_H
 #include <iostream>
-using std::ostream;
-using std::istream;
+using namesapce std;
 class DoubleSubscriptedArray
 {
    friend ostream &operator<<(ostream &, const DoubleSubscriptedArray & );
