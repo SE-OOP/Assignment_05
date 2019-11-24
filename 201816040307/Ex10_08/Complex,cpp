@@ -1,0 +1,55 @@
+#include"Complex.h"
+
+using namespace std;
+
+Complex::Complex(double real , double imaginary )
+{
+    realPart = real;
+    imaginaryPart = imaginary;
+}
+Complex Complex::operator-(const Complex &right) const
+{
+    int newreal, newimaginary;
+    newreal = realPart - right.realPart;
+    newimaginary = imaginaryPart - right.imaginaryPart;
+    return Complex(newreal, newimaginary);
+}
+Complex Complex::operator*(const Complex &right) const
+{
+    int newreal, newimaginary;
+    newreal = realPart * right.realPart - imaginaryPart * right.imaginaryPart;
+    newimaginary = realPart * right.imaginaryPart + imaginaryPart * right.realPart;
+    return Complex(newreal, newimaginary);
+}
+
+Complex Complex::operator+(const Complex &right) const
+{
+    return Complex(realPart + right.realPart, imaginaryPart + right.imaginaryPart);
+}
+
+bool Complex::operator==(const Complex &right) const
+{
+    if(realPart == right.realPart and imaginaryPart == right.imaginaryPart)
+        return true;
+    else
+        return false;
+}
+bool Complex::operator!=(const Complex &right) const
+{
+    if(right == *this )
+        return false;
+    else
+        return true;
+}
+
+ostream &operator<<(std::ostream &output,const Complex &com)
+{
+
+    output<<'('<<com.realPart<<','<<com.imaginaryPart<<"i)";
+    return output;
+}
+istream &operator>>(std::istream &input,Complex &com)
+{
+    input>>com.realPart>>com.imaginaryPart;
+    return input;
+}
